@@ -1,0 +1,46 @@
+{
+  "name": "naab-language",
+  "displayName": "NAAb Language",
+  "description": "Syntax highlighting for the NAAb programming language — the first language with built-in AI governance",
+  "version": "0.1.0",
+  "publisher": "b-macker",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/b-macker/vscode-naab"
+  },
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "keywords": [
+    "naab",
+    "polyglot",
+    "governance",
+    "ai-governance",
+    "programming-language"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "naab",
+        "aliases": ["NAAb", "naab"],
+        "extensions": [".naab"],
+        "configuration": "./language-configuration.json",
+        "icon": {
+          "light": "./icons/naab-icon.png",
+          "dark": "./icons/naab-icon.png"
+        }
+      }
+    ],
+    "grammars": [
+      {
+        "language": "naab",
+        "scopeName": "source.naab",
+        "path": "./syntaxes/naab.tmLanguage.json"
+      }
+    ]
+  }
+}
