@@ -8,9 +8,11 @@
     { "include": "#polyglot-block" },
     { "include": "#strings" },
     { "include": "#numbers" },
+    { "include": "#block-id" },
     { "include": "#keywords" },
     { "include": "#constants" },
     { "include": "#operators" },
+    { "include": "#punctuation" },
     { "include": "#function-call" },
     { "include": "#stdlib-module" },
     { "include": "#identifiers" }
@@ -41,11 +43,12 @@
       "patterns": [
         {
           "name": "meta.embedded.block.naab",
-          "begin": "(<<)(python|javascript|rust|cpp|go|csharp|ruby|php|shell|bash|nim|zig|julia)(\\[[^\\]]*\\])?",
+          "begin": "(<<)(python|javascript|rust|cpp|go|csharp|ruby|php|shell|bash|nim|zig|julia)(\\[[^\\]]*\\])?(\\s*->\\s*\\w+)?",
           "beginCaptures": {
             "1": { "name": "punctuation.definition.polyglot.begin.naab" },
             "2": { "name": "entity.name.tag.language.naab" },
-            "3": { "name": "variable.parameter.binding.naab" }
+            "3": { "name": "variable.parameter.binding.naab" },
+            "4": { "name": "storage.type.return.naab" }
           },
           "end": "^\\s*>>",
           "endCaptures": {
@@ -114,6 +117,15 @@
       ]
     },
 
+    "block-id": {
+      "patterns": [
+        {
+          "name": "entity.name.label.block-id.naab",
+          "match": "\\bBLOCK-[A-Z+\\-]+-\\d+\\b"
+        }
+      ]
+    },
+
     "keywords": {
       "patterns": [
         {
@@ -122,7 +134,7 @@
         },
         {
           "name": "keyword.declaration.naab",
-          "match": "\\b(let|const|var)\\b"
+          "match": "\\b(let|const)\\b"
         },
         {
           "name": "keyword.function.naab",
@@ -159,12 +171,20 @@
           "match": "\\|>"
         },
         {
-          "name": "keyword.operator.arrow.naab",
+          "name": "keyword.operator.fat-arrow.naab",
           "match": "=>"
         },
         {
+          "name": "keyword.operator.arrow.naab",
+          "match": "->"
+        },
+        {
+          "name": "keyword.operator.namespace.naab",
+          "match": "::"
+        },
+        {
           "name": "keyword.operator.range.naab",
-          "match": "\\.\\."
+          "match": "\\.\\.=?"
         },
         {
           "name": "keyword.operator.comparison.naab",
@@ -176,11 +196,32 @@
         },
         {
           "name": "keyword.operator.assignment.naab",
-          "match": "\\+=|-=|\\*=|/=|="
+          "match": "\\+=|-=|\\*=|/=|%=|="
         },
         {
           "name": "keyword.operator.arithmetic.naab",
           "match": "[+\\-*/%]"
+        },
+        {
+          "name": "keyword.operator.bitwise.naab",
+          "match": "\\||&"
+        }
+      ]
+    },
+
+    "punctuation": {
+      "patterns": [
+        {
+          "name": "punctuation.separator.colon.naab",
+          "match": ":"
+        },
+        {
+          "name": "punctuation.accessor.question.naab",
+          "match": "\\?"
+        },
+        {
+          "name": "punctuation.separator.semicolon.naab",
+          "match": ";"
         }
       ]
     },

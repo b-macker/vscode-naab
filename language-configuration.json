@@ -6,8 +6,7 @@
   "brackets": [
     ["{", "}"],
     ["[", "]"],
-    ["(", ")"],
-    ["<<", ">>"]
+    ["(", ")"]
   ],
   "autoClosingPairs": [
     { "open": "{", "close": "}" },
@@ -25,7 +24,7 @@
   ],
   "folding": {
     "markers": {
-      "start": "^\\s*(main|fn|function|func|def|if|for|while|match|try|struct|class|enum)\\b",
+      "start": "^\\s*(main|fn|function|func|def|if|else|for|while|match|try|catch|struct|class|enum|module)\\b",
       "end": "^\\s*\\}"
     }
   },

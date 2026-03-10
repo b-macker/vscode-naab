@@ -1,0 +1,208 @@
+{
+  "Main Block": {
+    "prefix": "main",
+    "body": [
+      "main {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Main entry point block"
+  },
+  "Function Declaration": {
+    "prefix": "fn",
+    "body": [
+      "fn ${1:name}(${2:params}) {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Function declaration"
+  },
+  "For Loop": {
+    "prefix": "for",
+    "body": [
+      "for ${1:item} in ${2:collection} {",
+      "\t$0",
+      "}"
+    ],
+    "description": "For-in loop"
+  },
+  "While Loop": {
+    "prefix": "while",
+    "body": [
+      "while ${1:condition} {",
+      "\t$0",
+      "}"
+    ],
+    "description": "While loop"
+  },
+  "If Statement": {
+    "prefix": "if",
+    "body": [
+      "if ${1:condition} {",
+      "\t$0",
+      "}"
+    ],
+    "description": "If statement"
+  },
+  "If-Else Statement": {
+    "prefix": "ife",
+    "body": [
+      "if ${1:condition} {",
+      "\t$2",
+      "} else {",
+      "\t$0",
+      "}"
+    ],
+    "description": "If-else statement"
+  },
+  "Match Expression": {
+    "prefix": "match",
+    "body": [
+      "match ${1:value} {",
+      "\t${2:pattern} => {",
+      "\t\t$0",
+      "\t}",
+      "}"
+    ],
+    "description": "Match expression"
+  },
+  "Try-Catch": {
+    "prefix": "try",
+    "body": [
+      "try {",
+      "\t$1",
+      "} catch (${2:e}) {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Try-catch block"
+  },
+  "Struct Declaration": {
+    "prefix": "struct",
+    "body": [
+      "struct ${1:Name} {",
+      "\t${2:field}: ${3:type}",
+      "}"
+    ],
+    "description": "Struct declaration"
+  },
+  "Polyglot Python": {
+    "prefix": "pyblock",
+    "body": [
+      "let ${1:result} = <<python",
+      "$0",
+      ">>"
+    ],
+    "description": "Python polyglot block"
+  },
+  "Polyglot JavaScript": {
+    "prefix": "jsblock",
+    "body": [
+      "let ${1:result} = <<javascript",
+      "$0",
+      ">>"
+    ],
+    "description": "JavaScript polyglot block"
+  },
+  "Polyglot Rust": {
+    "prefix": "rsblock",
+    "body": [
+      "let ${1:result} = <<rust",
+      "fn main() {",
+      "\t$0",
+      "}",
+      ">>"
+    ],
+    "description": "Rust polyglot block"
+  },
+  "Polyglot Shell": {
+    "prefix": "shblock",
+    "body": [
+      "let ${1:result} = <<shell",
+      "$0",
+      ">>"
+    ],
+    "description": "Shell polyglot block"
+  },
+  "Polyglot Go": {
+    "prefix": "goblock",
+    "body": [
+      "let ${1:result} = <<go",
+      "package main",
+      "",
+      "import \"fmt\"",
+      "",
+      "func main() {",
+      "\t$0",
+      "}",
+      ">>"
+    ],
+    "description": "Go polyglot block"
+  },
+  "Polyglot with Variable Binding": {
+    "prefix": "polyvar",
+    "body": [
+      "let ${1:result} = <<${2:python}[${3:var1, var2}]",
+      "$0",
+      ">>"
+    ],
+    "description": "Polyglot block with variable binding"
+  },
+  "Polyglot with JSON Return": {
+    "prefix": "polyjson",
+    "body": [
+      "let ${1:result} = <<${2:python} -> JSON",
+      "$0",
+      ">>"
+    ],
+    "description": "Polyglot block with JSON sovereign pipe"
+  },
+  "Lambda": {
+    "prefix": "lambda",
+    "body": [
+      "fn(${1:x}) { return ${0:x * 2} }"
+    ],
+    "description": "Lambda expression"
+  },
+  "Let Variable": {
+    "prefix": "let",
+    "body": [
+      "let ${1:name} = ${0:value}"
+    ],
+    "description": "Variable declaration"
+  },
+  "Const Variable": {
+    "prefix": "const",
+    "body": [
+      "const ${1:NAME} = ${0:value}"
+    ],
+    "description": "Constant declaration"
+  },
+  "Print": {
+    "prefix": "print",
+    "body": [
+      "print(${0:value})"
+    ],
+    "description": "Print value"
+  },
+  "Govern JSON Template": {
+    "prefix": "govern",
+    "body": [
+      "{",
+      "\t\"languages\": {",
+      "\t\t\"allowed\": [\"python\", \"javascript\", \"rust\"],",
+      "\t\t\"enforcement\": \"hard\"",
+      "\t},",
+      "\t\"capabilities\": {",
+      "\t\t\"network\": false,",
+      "\t\t\"filesystem\": { \"read\": true, \"write\": false }",
+      "\t},",
+      "\t\"limits\": {",
+      "\t\t\"max_execution_time\": 30,",
+      "\t\t\"max_lines_per_block\": 500",
+      "\t}",
+      "}"
+    ],
+    "description": "govern.json template"
+  }
+}
